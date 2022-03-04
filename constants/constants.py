@@ -1,6 +1,7 @@
 class Display:
     HEIGHT = 800
     WIDTH = 600
+    SIZE = (HEIGHT, WIDTH)
 
 class Colors:
     RED = (255, 0, 0)
