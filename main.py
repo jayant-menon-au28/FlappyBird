@@ -6,11 +6,11 @@ from constants.constants import Colors
 from key_mappings.key_map import KeyMap
 
 
-print(KeyMap.key_dict)
-
 pygame.init()
 screen = pygame.display.set_mode((Display.HEIGHT, Display.HEIGHT))
 background = Colors.GRAY
+pygame.display.set_caption("Gubbalatha's Game")
+
 
 running = True
 while running:
@@ -23,7 +23,8 @@ while running:
         if event.type == KEYDOWN:
             if event.key in KeyMap.key_dict:
                 background = KeyMap.key_dict[event.key]
-
+        caption = "background is " + str(background)
+        pygame.display.set_caption(caption)
         pygame.display.update()
 
 
