@@ -18,13 +18,11 @@ def main():
         for event in pygame.event.get():  # lines 16-18 are boilerplate for pygame. 
             if event.type == pygame.QUIT:  # the first event we usually check for is whether the user has quit the game
                 run = False
-
-            Display.WIN.fill(Display.BACKGROUND)
         
 
-            if event.type == KEYDOWN:
-                if event.key in KeyMap.key_dict:
-                    Display.BACKGROUND = KeyMap.key_dict[event.key]
+            # if event.type == KEYDOWN:
+                # if event.key in KeyMap.key_dict:
+                    # Display.BACKGROUND = KeyMap.key_dict[event.key]
 
             pygame.display.update()
 
