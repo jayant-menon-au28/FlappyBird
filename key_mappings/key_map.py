@@ -1,4 +1,4 @@
-from constants.constants import Colors
+from constants.colors import Colors
 
 class KeyMap:
     key_dict = {

@@ -1,38 +1,34 @@
 import pygame
 from pygame.locals import *
 
-from constants.constants import *
+from constants.display import Display
 from entities.ball import Ball
 from key_mappings.key_map import KeyMap
-
 
 
 def main():
 
     pygame.init()
     Display.WIN
-    background = Colors.GRAY
-    pygame.display.set_caption("Gubbalatha's Game")
+    Display.CAPTION
+    Display.BACKGROUND
 
-    running = True
-    while running:
-        for event in pygame.event.get():
-            if event.type == pygame.QUIT:
-                running = False
+    run = True
+    while run:
+        for event in pygame.event.get():  # lines 16-18 are boilerplate for pygame. 
+            if event.type == pygame.QUIT:  # the first event we usually check for is whether the user has quit the game
+                run = False
 
-            Display.WIN.fill(background)
-
-            ball = Ball()
+            Display.WIN.fill(Display.BACKGROUND)
         
 
             if event.type == KEYDOWN:
                 if event.key in KeyMap.key_dict:
-                    background = KeyMap.key_dict[event.key]
-            caption = "background is " + str(background)
-            pygame.display.set_caption(caption)
+                    Display.BACKGROUND = KeyMap.key_dict[event.key]
+
             pygame.display.update()
 
-    pygame.quit()
+    pygame.quit()  # if run is False, the while loop will terminate, as will pygame, exiting the game 
 
 
 if __name__ == "__main__":
