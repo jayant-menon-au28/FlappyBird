@@ -1,33 +1,29 @@
 import pygame
-from constants.constants import Constants
+from pygame.locals import *
+
+from constants.constants import Display
 from constants.constants import Colors
+from key_mappings.key_map import KeyMap
+
+
+print(KeyMap.key_dict)
 
 pygame.init()
-screen = pygame.display.set_mode((Constants.HEIGHT, Constants.HEIGHT))
+screen = pygame.display.set_mode((Display.HEIGHT, Display.HEIGHT))
 background = Colors.GRAY
 
 running = True
 while running:
     for event in pygame.event.get():
-        # print(event) 
         if event.type == pygame.QUIT:
             running = False
 
         screen.fill(background)
 
-        if event.type == pygame.KEYDOWN:
-            if event.key == pygame.K_RIGHT:
-                background = Colors.RED
-            if event.key == pygame.K_LEFT:
-                background = Colors.GREEN
+        if event.type == KEYDOWN:
+            if event.key in KeyMap.key_dict:
+                background = KeyMap.key_dict[event.key]
 
-
-
-        # keys_pressed = pygame.key.get_pressed()
-        # if keys_pressed[pygame.K_RIGHT]:
-        #     background = Colors.RED
-        
-        
         pygame.display.update()
 
 
