@@ -1,7 +1,9 @@
+import pygame
+
+
 class Display:
-    HEIGHT = 800
-    WIDTH = 600
-    SIZE = (HEIGHT, WIDTH)
+    HEIGHT, WIDTH  = 800, 600
+    WIN = pygame.display.set_mode((HEIGHT, WIDTH))
 
 class Colors:
     RED = (255, 0, 0)
