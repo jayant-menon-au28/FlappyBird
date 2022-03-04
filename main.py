@@ -6,32 +6,44 @@ from entities.ball import Ball
 from key_mappings.key_map import KeyMap
 
 
-pygame.init()
-Display.WIN
-background = Colors.GRAY
-pygame.display.set_caption("Gubbalatha's Game")
+
+def main():
+
+    pygame.init()
+    Display.WIN
+    background = Colors.GRAY
+    pygame.display.set_caption("Gubbalatha's Game")
+
+    running = True
+    while running:
+        for event in pygame.event.get():
+            if event.type == pygame.QUIT:
+                running = False
+
+            Display.WIN.fill(background)
+
+            ball = Ball()
+        
+
+            if event.type == KEYDOWN:
+                if event.key in KeyMap.key_dict:
+                    background = KeyMap.key_dict[event.key]
+            caption = "background is " + str(background)
+            pygame.display.set_caption(caption)
+            pygame.display.update()
+
+    pygame.quit()
 
 
-running = True
-while running:
-    for event in pygame.event.get():
-        if event.type == pygame.QUIT:
-            running = False
-
-        Display.WIN.fill(background)
-
-        ball = Ball()
-    
-
-        if event.type == KEYDOWN:
-            if event.key in KeyMap.key_dict:
-                background = KeyMap.key_dict[event.key]
-        caption = "background is " + str(background)
-        pygame.display.set_caption(caption)
-        pygame.display.update()
+if __name__ == "__main__":
+    main()
 
 
-pygame.quit()
+
+
+
+
+
 
 
 
