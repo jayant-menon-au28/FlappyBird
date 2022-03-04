@@ -1,4 +1,4 @@
-class Constants:
+class Display:
     HEIGHT = 800
     WIDTH = 600
 
