@@ -1,17 +1,30 @@
 import pygame
 from pygame.locals import *
 
-from constants.display import Display
-from entities.ball import Ball
+from constants.caption import Caption
+from constants.dimensions import Dimensions
+
+from entities.background import Background
+
 from key_mappings.key_map import KeyMap
+
+def draw_window():
+    pygame.display.update()
+
 
 
 def main():
 
     pygame.init()
-    Display.WIN
-    Display.CAPTION
-    Display.BACKGROUND
+    WIN = pygame.display.set_mode(Dimensions.DIMENSIONS)
+    Caption.CAPTION
+    
+    
+    bg = Background()
+    bg.display_background(WIN)
+
+
+
 
     run = True
     while run:
@@ -24,7 +37,7 @@ def main():
                 # if event.key in KeyMap.key_dict:
                     # Display.BACKGROUND = KeyMap.key_dict[event.key]
 
-            pygame.display.update()
+            draw_window()
 
     pygame.quit()  # if run is False, the while loop will terminate, as will pygame, exiting the game 
 
